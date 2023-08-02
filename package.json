@@ -1,23 +1,22 @@
 {
-    "name": "git-archiver",
-    "version": "1.0.0",
-    "description": "A git repository archiver for Node.js applications",
-    "bin": "lib/archiver.js",
-    "main": "lib/archiver.js",
-    "files": [
-      "lib"
-    ],
-    "scripts": {
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/rulerzz/archiver"
-    },
-    "keywords": [
-      "git-archiver",
-      "archiver"
-    ],
-    "author": "Mayank Kapri <may.ghz.conan@gmail.com>",
-    "license": "MIT",
-    "homepage": "https://github.com/rulerzz/archiver#readme"
-  }
+  "name": "git-archiver",
+  "version": "1.0.3",
+  "description": "A cli tool for archiving all branches of the current project",
+  "main": "bin/index.js",
+  "bin": {
+    "git-archiver": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rulerzz/git-archiver.git"
+  },
+  "author": "Mayank Kapri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rulerzz/git-archiver/issues"
+  },
+  "homepage": "https://github.com/rulerzz/git-archiver#readme"
+}
