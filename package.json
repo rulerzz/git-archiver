@@ -1,0 +1,23 @@
+{
+    "name": "git-archiver",
+    "version": "1.0.0",
+    "description": "A git repository archiver for Node.js applications",
+    "bin": "lib/archiver.js",
+    "main": "lib/archiver.js",
+    "files": [
+      "lib"
+    ],
+    "scripts": {
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/rulerzz/archiver"
+    },
+    "keywords": [
+      "git-archiver",
+      "archiver"
+    ],
+    "author": "Mayank Kapri <may.ghz.conan@gmail.com>",
+    "license": "MIT",
+    "homepage": "https://github.com/rulerzz/archiver#readme"
+  }
