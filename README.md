@@ -15,8 +15,19 @@ Node.js
 ## Usage
 
    ```sh
-   git-archiver
-   ```
+   git-archiver [arguments]
+  
+    Options:
+      -h, --help                        show help information.
+      -v, --version                     show git-archiver version.
+  
+      -l, --list                        show all branches in remote repo
+      -g, --generate                    generate branches.txt with all branches information
+  
+    Examples:
+
+    $ git-archiver                      starts git archiver and generates all archives
+    ```
 
 ## License
 
