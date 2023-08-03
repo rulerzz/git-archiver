@@ -30,19 +30,13 @@ const archive = async function () {
 
   for await (const line of rl) {
     const branch = line.replace("origin/", "").trim();
-    console.log(chalk.yellow(`=> Archiving ${branch}`));
+    console.log(chalk.yellow(`\n=> Archiving ${branch}`));
 
     await checkoutBranch(branch)
       .then(() =>
         console.log(chalk.green(`Checkout of branch ${branch} completed`))
-      )
-      .catch((err) =>
-        console.log(
-          chalk.red(
-            err
-          )
-        )
-      );
+      ) 
+      .catch((err) => console.log(chalk.yellow(`\n${err}`)));
 
     await archiveBranch(branch)
       .then(() =>

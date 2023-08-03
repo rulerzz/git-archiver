@@ -35,7 +35,7 @@ Distributed under the MIT License.
 
 ### Contact
 
-Your Name - [@kapriprograms](https://twitter.com/kapriprograms) - may.ghz.conan@example.com
+Mayank Kapri - [@kapriprograms](https://twitter.com/kapriprograms) - may.ghz.conan@example.com
 
 Project Link: [https://github.com/rulerzz/git-archiver](https://github.com/rulerzz/git-archiver)
 
