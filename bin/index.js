@@ -29,13 +29,16 @@ const archive = async function () {
   else console.log(chalk.blue("creating archive DIR..."));
 
   for await (const line of rl) {
-    const branch = line.replace("origin/", "").trim();
+    let branch = "";
+    if (line.includes("origin/HEAD -> "))
+      branch = line.replace("origin/HEAD -> ", "").trim();
+    else branch = line.replace("origin/", "").trim();
     console.log(chalk.yellow(`\n=> Archiving ${branch}`));
 
     await checkoutBranch(branch)
       .then(() =>
         console.log(chalk.green(`Checkout of branch ${branch} completed`))
-      ) 
+      )
       .catch((err) => console.log(chalk.yellow(`\n${err}`)));
 
     await archiveBranch(branch)
@@ -83,7 +86,10 @@ const checkoutBranch = function (branch) {
 const archiveBranch = function (branch) {
   return new Promise((resolve, reject) => {
     exec(
-      `git archive --format zip --output archive/${branch}.zip ${branch}`,
+      `git archive --format zip --output archive/${branch.replace(
+        "/",
+        "-"
+      )}.zip ${branch}`,
       (error, stdout, stderr) => {
         if (error) {
           reject(error);
