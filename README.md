@@ -1,5 +1,5 @@
-![Screenshot (35)](https://github.com/rulerzz/git-archiver/assets/11574887/d7f083d5-b70d-4759-b5e2-9f0a6395c5d1)
-# About The Project
+![Screenshot (35)](https://github.com/rulerzz/git-archiver/assets/11574887/e512b340-11e4-48d4-8075-947fe009ae40)
+## git-archiver
 
 A cli tool for archiving all branches of the current project
 
