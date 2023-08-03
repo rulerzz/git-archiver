@@ -1,6 +1,6 @@
 {
   "name": "git-archiver",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A cli tool for archiving all branches of the current project",
   "main": "bin/index.js",
   "bin": {
