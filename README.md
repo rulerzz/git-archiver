@@ -1,4 +1,5 @@
-## About The Project
+![image](https://github.com/rulerzz/git-archiver/assets/11574887/97c36a08-d4e7-4c1a-a218-5aed95fb005f)#![Screenshot (34)](https://github.com/rulerzz/git-archiver/assets/11574887/dbef8a1b-d6af-4787-bc14-81ef9456d2a8)
+# About The Project
 
 A cli tool for archiving all branches of the current project
 
@@ -28,6 +29,13 @@ Node.js, Chalk
 
     $ git-archiver                      starts git archiver and generates all archives
 ```
+
+   ```sh
+   git-archiver
+   ```
+
+After a while you shall see all branches of your currrent project git repositories being saved as zip archives one by one.
+![Screenshot (33)](https://github.com/rulerzz/git-archiver/assets/11574887/63ea858a-48d7-4dd3-8048-a682f59fe5ba)
 
 ### License
 
