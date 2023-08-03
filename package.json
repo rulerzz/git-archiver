@@ -14,7 +14,7 @@
     "url": "git+https://github.com/rulerzz/git-archiver.git"
   },
   "author": "Mayank Kapri",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/rulerzz/git-archiver/issues"
   },
