@@ -1,17 +1,19 @@
-'use strict';
+"use strict";
 const fs = require("fs");
 const readline = require("readline");
 const { exec } = require("child_process");
 const { promisify } = require("util");
+const chalk = require("chalk");
 
 const writeFileAsync = promisify(fs.writeFile);
 
-const archive = async function() {
+const archive = async function () {
   const branches = await generateBranchesList();
   await writeFileAsync("./branches.txt", branches);
-  console.log("Branch list fetched from remote.......");
+  console.log(chalk.blue("Branch list fetched from remote......."));
 
   const fileStream = fs.createReadStream("branches.txt");
+  console.log(chalk.green("Generate branches registry"));
 
   const rl = readline.createInterface({
     input: fileStream,
@@ -21,19 +23,42 @@ const archive = async function() {
   !fs.existsSync(`./archive/`) &&
     fs.mkdirSync(`./archive/`, { recursive: true });
 
+  console.log(chalk.blue("Making archive DIR if not exists..."));
+  if (fs.existsSync(`./archive/`))
+    console.log(chalk.blue("archive DIR exists"));
+  else console.log(chalk.blue("creating archive DIR..."));
+
   for await (const line of rl) {
     const branch = line.replace("origin/", "").trim();
-    console.log(`Archiving ${branch}`);
+    console.log(chalk.yellow(`=> Archiving ${branch}`));
+
     await checkoutBranch(branch)
-      .catch((err) => console.log(err))
-      .then(() => console.log(`Checkout of branch ${branch} completed`));
+      .then(() =>
+        console.log(chalk.green(`Checkout of branch ${branch} completed`))
+      )
+      .catch((err) =>
+        console.log(
+          chalk.red(
+            err
+          )
+        )
+      );
+
     await archiveBranch(branch)
-      .catch((err) => console.log(err))
-      .then(() => console.log(`Archive for branch ${branch} generated`));
+      .then(() =>
+        console.log(chalk.green(`Archive for branch ${branch} generated`))
+      )
+      .catch((err) =>
+        console.log(
+          chalk.red(
+            `Checkout of branch ${branch} failed with error ${err.message}`
+          )
+        )
+      );
   }
 };
 
-const generateBranchesList = function() {
+const generateBranchesList = function () {
   return new Promise((resolve, reject) => {
     exec(`git branch -r`, (error, stdout, stderr) => {
       if (error) {
@@ -47,7 +72,7 @@ const generateBranchesList = function() {
   });
 };
 
-const checkoutBranch = function(branch) {
+const checkoutBranch = function (branch) {
   return new Promise((resolve, reject) => {
     exec(`git checkout ${branch}`, (error, stdout, stderr) => {
       if (error) {
@@ -61,7 +86,7 @@ const checkoutBranch = function(branch) {
   });
 };
 
-const archiveBranch = function(branch) {
+const archiveBranch = function (branch) {
   return new Promise((resolve, reject) => {
     exec(
       `git archive --format zip --output archive/${branch}.zip ${branch}`,
@@ -78,7 +103,7 @@ const archiveBranch = function(branch) {
   });
 };
 
-const generateBranchesListFile = async function() {
+const generateBranchesListFile = async function () {
   const branches = await generateBranchesList();
   await writeFileAsync("./branches.txt", branches);
 };
@@ -88,7 +113,7 @@ global.bytenode = {
   checkoutBranch,
   generateBranchesList,
   archive,
-  generateBranchesListFile
+  generateBranchesListFile,
 };
 
 module.exports = global.bytenode;

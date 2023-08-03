@@ -4,7 +4,7 @@ A cli tool for archiving all branches of the current project
 
 ### Built With
 
-Node.js
+Node.js, Chalk
 
 ### Installation
 
@@ -12,7 +12,7 @@ Node.js
    npm install -g git-archiver
    ```
 
-## Usage
+### Usage
 
    ```sh
    git-archiver [arguments]
@@ -27,13 +27,13 @@ Node.js
     Examples:
 
     $ git-archiver                      starts git archiver and generates all archives
-    ```
+```
 
-## License
+### License
 
 Distributed under the MIT License.
 
-## Contact
+### Contact
 
 Your Name - [@kapriprograms](https://twitter.com/kapriprograms) - may.ghz.conan@example.com
 

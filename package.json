@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/rulerzz/git-archiver/issues"
   },
-  "homepage": "https://github.com/rulerzz/git-archiver#readme"
+  "homepage": "https://github.com/rulerzz/git-archiver#readme",
+  "dependencies": {
+    "chalk": "4.1.2"
+  }
 }
